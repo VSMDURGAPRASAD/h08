@@ -2,7 +2,7 @@
 
 ## Complete Java Kafka Exercise
 
-Read the article here: https://www.javaworld.com/article/3060078/big-data/big-data-messaging-with-kafka-part-1.html (Links to an external site.)Links to an external site..
+Read the article here: https://www.javaworld.com/article/3060078/big-data/big-data-messaging-with-kafka-part-1.html
 
 Create a new CustomProducer to auto-generate and send at least 10 messages to the topic. You can create a random word generator, cycle through a list sending one message every second, or use Facebook or Twitter APIs to access live content.  Experiment - the goal is to be comfortable adding external messaging to any Java app. 
 
@@ -29,7 +29,7 @@ Configure environment variables for easy access. Create the following - use your
 [Environment]::SetEnvironmentVariable("KAFKA_HOME", "C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0", "Machine")
 ```
 
-Edit System ‚ÄúPath‚Äù to append
+Edit System ìPathî to append
 
 ```
 %ZOOKEEPER_HOME%\bin;
