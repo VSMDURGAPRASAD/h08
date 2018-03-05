@@ -1,0 +1,1 @@
+rmdir /s /q c:\tmp\kafka-logs

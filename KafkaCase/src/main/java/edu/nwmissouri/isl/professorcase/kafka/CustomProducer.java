@@ -57,7 +57,7 @@ public class CustomProducer {
         runProperties.getProperty("KEY_SERIALIZER_CLASS_CONFIG"));
     configProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
         runProperties.getProperty("VALUE_SERIALIZER_CLASS_CONFIG"));
-    org.apache.kafka.clients.producer.Producer producer = new KafkaProducer(configProperties);
+    org.apache.kafka.clients.producer.Producer<String, String> producer = new KafkaProducer<String, String>(configProperties);
 
     System.out.println("==========================================");
     System.out.println("You must start a consumer to see messages.");
