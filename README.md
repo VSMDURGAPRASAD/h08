@@ -31,6 +31,8 @@ Put your entire code solution in a repo and share a clickable link.
 
 Clone this h08 repo and set up your tools. (Use chocolatey or or your previous installations.)
 
+Install the newest version of JDK8 from Oracle. Mine was  C:\Program Files\Java\jdk1.8.0_162.
+
 Run PowerShell as Admin and use Chocolatey to install zookeeper, kafka, and maven (verify by checking C:\ProgramData\chocolatey\lib and C:\tools).
 
 ```PowerShell
@@ -40,20 +42,28 @@ choco install maven -y
 ```
 
 Configure environment variables for easy access. Create the following - use your path. 
--ZOOKEEPER_HOME = C:\Tools\zookeeper-3.4.9
-- KAFKA_HOME = C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0
+
+```Bash
+JAVA_HOME = C:\Program Files\Java\jdk1.8.0_162
+
+ZOOKEEPER_HOME = C:\Tools\zookeeper-3.4.9
+
+KAFKA_HOME = C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0
+```
+
 
 ```PowerShell
 [Environment]::SetEnvironmentVariable("ZOOKEEPER_HOME", "C:\Tools\zookeeper-3.4.9", "Machine")
 [Environment]::SetEnvironmentVariable("KAFKA_HOME", "C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0", "Machine")
 ```
 
-Edit System “Path” to append
+Edit System Path to append
 
 ```
-%ZOOKEEPER_HOME%\bin;
+%JAVA_HOME%\bin;
 %KAFKA_HOME%\bin;
 %KAFKA_HOME%\bin\windows;
+%ZOOKEEPER_HOME%\bin;
 ```
 
 ## Configure Zookeeper
