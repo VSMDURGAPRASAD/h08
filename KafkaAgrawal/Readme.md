@@ -4,7 +4,9 @@
 Big data messaging with Kafka
 
 We have designed two custom producer named CustomProducer and Twitter Producer.
+
 Custom Producer : Generates random string of length n
+
 Twitter Producer: Fetch all the post from provided page name
 
 1. Start the consumer
