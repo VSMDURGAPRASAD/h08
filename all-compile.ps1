@@ -5,4 +5,3 @@
 Get-ChildItem  -Directory  | ForEach-Object { Write-Host "$_";
   cd $_; mvn clean compile assembly:single; cd ..; 
 }
-java -cp KafkaAPIClient/target/KafkaAPIClient-1.0-SNAPSHOT-jar-with-dependencies.jar com.spnotes.kafka.simple.Consumer test group1
