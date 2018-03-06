@@ -19,3 +19,6 @@ twitter4j.properties
 
 #Visual Studio settings files
 .vscode/
+
+# ignore all . folders
+.*/
