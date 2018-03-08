@@ -1,0 +1,1 @@
+java -cp target/KafkaSTP-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmissouri.stp.kafka.CustomConsumer
