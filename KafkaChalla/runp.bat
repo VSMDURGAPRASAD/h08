@@ -1,0 +1,1 @@
+java -cp target/KafkaChalla-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmissouri.challa.kafka.CustomProducer 
