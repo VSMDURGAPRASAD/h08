@@ -1,4 +1,4 @@
-package edu.nwmissouri.isl.professorcase.kafka;
+package edu.nwmissouri.isl.jella.kafka;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -69,7 +69,7 @@ public class CustomProducer {
     int i = 1;
     List<Status> statuses = new ArrayList<Status>();
     try {
-      Paging page = new Paging(pageno, 20);
+      Paging page = new Paging(pageno, 12);
       statuses.addAll(twitter.getUserTimeline(user, page));
       System.out.println("Total: " + statuses.size());
       for (Status status : statuses) {
