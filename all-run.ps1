@@ -13,7 +13,7 @@ Read-Host -Prompt "Start Apache Kafka. Press any key to continue or CTRL+C to qu
 Start-Process -FilePath "powershell" -Verb runAs "java -cp KafkaAPIClient/target/KafkaAPIClient-1.0-SNAPSHOT-jar-with-dependencies.jar com.spnotes.kafka.simple.Consumer test group1"
 
 # start up many producers
-Get-ChildItem  -Directory  | ForEach-Object { Write-Host "$_";
+Get-ChildItem -Exclude .* -Directory  | ForEach-Object { Write-Host "$_";
   cd $_; 
   Start-Process -FilePath "powershell" -Verb runAs ".\runp;" 
   cd ..; 
