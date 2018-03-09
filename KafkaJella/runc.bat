@@ -1,1 +1,1 @@
-java -cp target/KafkaCase-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmissouri.isl.jella.kafka.CustomConsumer
+java -cp target/KafkaJella-1.0-SNAPSHOT-jar-with-dependencies.jar edu.nwmissouri.isl.jella.kafka.CustomConsumer
