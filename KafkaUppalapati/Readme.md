@@ -18,5 +18,4 @@ open another GitBash in the KafkaUppalapati folder.
 run mvn clean compile assembly:single
 run runp.bat command to start the custom producer.
 
-6. Verify if the tweets are being generated based on the twitter user profile given in run.properties file.
-
+Verify if the tweets are being generated based on the twitter user profile given in run.properties file.
