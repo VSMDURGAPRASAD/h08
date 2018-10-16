@@ -4,67 +4,55 @@
 
 Read the article here: https://www.javaworld.com/article/3060078/big-data/big-data-messaging-with-kafka-part-1.html
 
-Create a new CustomProducer to auto-generate and send at least 10 messages to the topic. You can create a random word generator, cycle through a list sending one message every second, or use Facebook or Twitter APIs to access live content.  Experiment - the goal is to be comfortable adding external messaging to any Java app.
-
-Note: Use the binary version of Kafka (not the source), and make sure never to leave spaces in path and file names. Do not install them in your "My documents" folder. If you download and extract manually, I suggest C:\kafka and C:\zookeeper (with the current version appended).
+Goal: Create a new CustomProducer to auto-generate and send at least 10 messages to the topic. You can create a random word generator, cycle through a list sending one message every second, or use Facebook or Twitter APIs to access live content. Experiment - the goal is to be comfortable adding external messaging to any Java app.
 
 ## Design and Implement a Custom Producer App
 
-Plan and design a routine to create messages without the users typing. You may use an array of messages, generate them randomly, or access a public API.
-
-If you want to test the CaseKafka example that accesses Twitter data, you'll need to follow the Twitter guides below and create your custom 
+1. Plan and design a routine to create messages without user typing. 
+You may use an array of messages, generate them randomly, or access a public API. 
+If you want to test the CaseKafka example that accesses Twitter data, 
+you'll need to follow the Twitter guides below and create your custom 
 src/main/resources/twitter4j.properties file. 
 
-Implement your Custom Producer app.
+2. Implement your Custom Producer app.
 
-Compile and build a new executable jar with maven using the mvn clean compile assembly:single command. 
+3. Compile and build a new executable jar with maven using the mvn clean compile assembly:single command. 
 
-Start your consumer using a custom java -cp command (short for 'classpath').
+4. Start your consumer using a custom java -cp command (short for 'classpath').
 
-Verify your messages are output by the Consumer.
+5. Verify your messages are output by the Consumer.
 
-Create a professional README.md file to explain how to setup and run your project.
+6. Create a professional README.md file to explain how to setup and run your project.
 
-Put your entire code solution in a repo and share a clickable link.
+7. Put your entire code solution in a repo and share a clickable link.
 
-## Set Up Environment
+## Prerequisities
 
-Clone this h08 repo and set up your tools. (Use chocolatey or or your previous installations.)
-
-Install the newest version of JDK8 from Oracle. Mine was  C:\Program Files\Java\jdk1.8.0_162.
-
-Run PowerShell as Admin and use Chocolatey to install zookeeper, kafka, and maven (verify by checking C:\ProgramData\chocolatey\lib and C:\tools).
-
-```PowerShell
-choco install apache-zookeeper -y
-choco install kafka -y
-choco install maven -y
-```
+* JDK8
+* Zookeeper
+* Kafka
+* Maven
 
 Configure environment variables for easy access. Create the following - use your path. 
 
 ```Bash
-JAVA_HOME = C:\Program Files\Java\jdk1.8.0_162
-
-ZOOKEEPER_HOME = C:\Tools\zookeeper-3.4.9
-
-KAFKA_HOME = C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0
+JAVA_HOME
+ZOOKEEPER_HOME
+KAFKA_HOME
 ```
 
+System Path should include
 
-```PowerShell
-[Environment]::SetEnvironmentVariable("ZOOKEEPER_HOME", "C:\Tools\zookeeper-3.4.9", "Machine")
-[Environment]::SetEnvironmentVariable("KAFKA_HOME", "C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0", "Machine")
+```Bash
+%JAVA_HOME%\bin
+%KAFKA_HOME%\bin
+%KAFKA_HOME%\bin\windows
+%ZOOKEEPER_HOME%\bin
 ```
 
-Edit System Path to append
+## Reference
 
-```
-%JAVA_HOME%\bin;
-%KAFKA_HOME%\bin;
-%KAFKA_HOME%\bin\windows;
-%ZOOKEEPER_HOME%\bin;
-```
+See <https://bitbucket.org/professorcase/h07>.
 
 ## Configure Zookeeper
 
@@ -72,30 +60,22 @@ Create the required zoo.cfg. In C:\Tools\zookeeper-3.4.9\conf, copy zoo_sample.c
 
 ## Start Zookeeper Service
 
-Start Zookeeper. In a new PowerShell Admin folder, run the following, then minimize, but don't close the window.
-```PowerShell
-zkServer
-```
+Start the Zookeeper service. Keep the window open.
 
 ## Start Kafka Service
 
-Start the Kafka service. In a new PowerShell Admin folder, run the following to clean up old log files and start the service. Then minimize (but do not close) the window.
+Start the Kafka service. Keep the window open.
 
-```PowerShell
-Remove-Item –path C:\tmp\kafka-logs –recurse
-kafka-server-start C:\ProgramData\chocolatey\lib\kafka\tools\kafka_2.11-1.0.0\config\server.properties
-```
-
-## Create the KafkaAPIClient Executable Jar
+## Create KafkaAPIClient Executable
 
 1. Clone the Maven project from the article into h08. Explore the Maven pom file and the Java code for the Producer and Consumer.
-1. Open a PowerShell window in the *KafkaAPIClient* folder, compile the code using Maven and create an executable jar file. Generated artificacts can be found in the new 'target' folder.
+2. Open a PowerShell window in the *KafkaAPIClient* folder, compile the code using Maven and create an executable jar file. Generated artificacts can be found in the new 'target' folder.
 
 ```PowerShell
 mvn clean compile assembly:single
 ```
 
-## Create the KafkaCase Executable Jar
+## Create KafkaCase Executable
 
 1. Open a PowerShell window in the *KafkaCase* folder, compile the code using Maven and create an executable jar file. Generated artificacts can be found in the new 'target' folder.
 
@@ -118,6 +98,8 @@ Open another PowerShell window in the *KafkaAPIClient* folder, start the Produce
 ```PowerShell
 java -cp target/KafkaAPIClient-1.0-SNAPSHOT-jar-with-dependencies.jar com.spnotes.kafka.simple.Producer test
 ```
+
+## Test Communications
 
 1. Type some messages for the Producer.
 1. Verify the messages are output by the Consumer.
